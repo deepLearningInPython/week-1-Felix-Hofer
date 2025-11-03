@@ -54,11 +54,11 @@ def ReLu (arr, cutoff = 0):
 # -----------------------------------------------
 
 def neural_net_layer (twod_arr, oned_arr):
-    if twod_arr.shape[0] == 2 and oned_arr.shape[1] == twod_arr.shape[1]:
+    try:
         result = twod_arr @ oned_arr
         result = ReLu(result)
         return result
-    else:
+    except:
         raise ValueError("Shape mismatch between the arrays")
 
 
