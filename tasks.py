@@ -38,8 +38,8 @@ def ReLu (arr, cutoff = 0):
             if arr[idx] < cutoff:
                 arr[idx] = cutoff
         return arr
-    
-    except
+    except:
+        raise TypeError("Only input an array and a numeric cutoff")
 # -----------------------------------------------
 
 
@@ -54,9 +54,12 @@ def ReLu (arr, cutoff = 0):
 # -----------------------------------------------
 
 def neural_net_layer (twod_arr, oned_arr):
-    result = twod_arr @ oned_arr
-    result = ReLu(result)
-    return result
+    if twod_arr.shape[0] == 2 and oned_arr.shape[1] == twod_arr[1]:
+        result = twod_arr @ oned_arr
+        result = ReLu(result)
+        return result
+    else:
+        raise ValueError("Shape mismatch between the arrays")
 
 
 # ------------------------------------------
