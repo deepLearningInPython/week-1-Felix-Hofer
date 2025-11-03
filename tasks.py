@@ -16,7 +16,7 @@ import numpy as np
 def step (N):
     if N > 0:
         return 1
-    if N < 0:
+    else:
         return -1
 
 
